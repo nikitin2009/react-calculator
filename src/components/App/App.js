@@ -3,12 +3,12 @@ import React, {Component} from 'react';
 import Display from '../Display';
 import ButtonPanel from '../ButtonPanel';
 
-import './styles.css';
+import Styles from './App.module.css';
 
 class App extends Component {
   render() {
     return (
-      <div className='calculator'>
+      <div className={ Styles.calculator }>
         <Display />
         <ButtonPanel />
       </div>

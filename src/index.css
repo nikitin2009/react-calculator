@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffd47c;
+  padding-top: 3rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 code {

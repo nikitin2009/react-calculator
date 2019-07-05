@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <h1>Hello React Calculator!</h1>
-  );
+import Display from './Display';
+import ButtonPanel from './ButtonPanel';
+
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Display />
+        <ButtonPanel />
+      </>
+    );
+  }
 }
 
 export default App;

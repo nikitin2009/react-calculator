@@ -1,9 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Button() {
+const Button = (props) => {
   return (
-    <h1>Hello Button component!</h1>
+    <button>{props.name}</button>
   );
 }
+
+Button.propTypes = {
+  name: PropTypes.string.isRequired,
+};
 
 export default Button;

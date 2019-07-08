@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import Styles from './Button.module.css';
 
 const Button = (props) => {
+  const {name, color, clickHandler} = props;
+
   return (
     <button
       className={ Styles.button }
-      style= {{backgroundColor: props.color}}
+      style= {{backgroundColor: color}}
+      onClick={ () => clickHandler(name) }
     >
-      {props.name}
+      {name}
     </button>
   );
 }

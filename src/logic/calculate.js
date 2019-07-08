@@ -3,36 +3,63 @@ import operate from './operate';
 export default function calculate(data, buttonName) {
   
   const {total, next, operation} = data;
-  const newData = Object.assign({}, data);
 
   switch (buttonName) {
+    case 'AC':
+      data.total = null;
+      data.next = null;
+      data.operation = null;
+      break;
+      
     case '+/-':
-      newData.total = total * (-1);
-      newData.next = next * (-1);
-      break;
-
-    case '+':
-      newData.total = operate.operate(total, next, '+');
-      newData.next = 0;
-      break;
-
-    case '-':
-      newData.total = operate.operate(total, next, '-');
-      newData.next = 0;
-      break;
-
-    case 'x':
-      break;
-
-    case '÷':
+      if (next) {
+        data.next = operate('-1', next, 'x');
+      }
       break;
 
     case '%':
+      if (next) {
+        data.next = operate(next, '100', '÷');
+      }
+      break;
+
+    case '=':
+      data.total = operate(total, next, operation);
+      data.next = null;
+      data.operation = null;
+      break;
+        
+    case '+':
+    case '-':
+    case 'x':
+    case '÷':
+      data.total = operate(total, next, operation);
+      data.next = null;
+      data.operation = buttonName;
+      break;
+      
+    case '.':
+      if (next) {
+        data.next += next.includes('.') ? '' : '.';
+      } else {
+        data.next = '0.';
+      }
+      break;
+
+    case '0':
+      if (next) {
+        data.next += buttonName;
+      }
       break;
   
     default:
+      if (next) {
+        data.next += buttonName;
+      } else {
+        data.next = buttonName;
+      }
       break;
   }
 
-  return newData;
+  return data;
 }

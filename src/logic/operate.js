@@ -2,8 +2,8 @@ import Big from 'big.js';
 
 export default function operate(numberOne, numberTwo, operation) {
   
-  const x = new Big(numberOne);
-  const y = new Big(numberTwo);
+  const x = numberOne ? new Big(numberOne) : 0;
+  const y = numberTwo ? new Big(numberTwo) : 0;
   let result;
 
   switch (operation) {
@@ -23,12 +23,10 @@ export default function operate(numberOne, numberTwo, operation) {
       result = x.div(y);
       break;
 
-    case '%':
-      break;
-
     default:
+      result = y || x;
       break;
   }
 
-  return result;
+  return result.toString();
 }

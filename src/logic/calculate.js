@@ -46,14 +46,8 @@ export default function calculate(data, buttonName) {
       }
       break;
 
-    case '0':
-      if (next) {
-        data.next += buttonName;
-      }
-      break;
-  
     default:
-      if (next) {
+      if (next && next !== '0') {
         data.next += buttonName;
       } else {
         data.next = buttonName;

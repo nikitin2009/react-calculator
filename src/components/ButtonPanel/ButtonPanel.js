@@ -3,155 +3,39 @@ import Button from '../Button';
 
 import Styles from './ButtonPanel.module.css';
 
-function ButtonPanel(props) {
-  const {clickHandler} = props;
+function ButtonPanel({clickHandler}) {
+
+  const rows = [
+    ['AC', '+/-', '%', '÷'],
+    ['7', '8', '9', 'x'],
+    ['4', '5', '6', '-'],
+    ['1', '2', '3', '+'],
+    ['0', '.', '=']
+  ];
+
+  const rowsJSX = rows.map( row => (
+    <div
+      key={ row }
+      className={ Styles.panelRow }
+    >
+      { row.map( name => (
+        <div
+          key={ name }
+          className={ name === '0' ? Styles.panelButton2x : Styles.panelButton }
+        >
+          <Button
+            name={ name }
+            color={ ['÷', 'x', '-', '+', '='].includes(name) }
+            clickHandler={ clickHandler }
+          />
+        </div>
+      )) }
+    </div>
+  ));
 
   return (
     <div className='panel'>
-
-      <div className={ Styles.panel_row }>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="AC"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="+/-"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="%"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="÷"
-            clickHandler={ clickHandler }
-          />
-        </div>
-      </div>
-
-      <div className={ Styles.panel_row }>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="7"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="8"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="9"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="x"
-            clickHandler={ clickHandler }
-          />
-        </div>
-      </div>
-
-      <div className={ Styles.panel_row }>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="4"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="5"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="6"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="-"
-            clickHandler={ clickHandler }
-          />
-        </div>
-      </div>
-
-      <div className={ Styles.panel_row }>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="1"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="2"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="3"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="+"
-            clickHandler={ clickHandler }
-          />
-        </div>
-      </div>
-
-      <div className={ Styles.panel_row }>
-        <div className={ Styles.panel_button_2x }>
-          <Button
-            name="0"
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="."
-            color='#E0DBD9'
-            clickHandler={ clickHandler }
-          />
-        </div>
-        <div className={ Styles.panel_button }>
-          <Button
-            name="="
-            clickHandler={ clickHandler }
-          />
-        </div>
-      </div>
-      
+      { rowsJSX }
     </div>
   );
 }

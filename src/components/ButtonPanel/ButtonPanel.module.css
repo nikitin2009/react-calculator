@@ -1,13 +1,13 @@
-.panel_row {
+.panelRow {
   height: 100px;
   display: flex;
 }
 
-.panel_button {
+.panelButton {
   flex-basis: 25%;
 }
 
-.panel_button_2x {
-  composes: panel_button;
+.panelButton2x {
+  composes: panelButton;
   flex-basis: 50%;
 }

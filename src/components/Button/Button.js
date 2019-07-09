@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 import Styles from './Button.module.css';
 
-const Button = (props) => {
-  const {name, color, clickHandler} = props;
+const Button = ({name, color, clickHandler}) => {
+  const buttonClass = color ? Styles.buttonOperation : Styles.button;
 
   return (
     <button
-      className={ Styles.button }
-      style= {{backgroundColor: color}}
+      className={ buttonClass }
       onClick={ () => clickHandler(name) }
     >
       {name}
@@ -19,10 +18,6 @@ const Button = (props) => {
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
-};
-
-Button.defaultProps = {
-  color: '#F48E3C',
 };
 
 export default Button;

@@ -9,9 +9,15 @@
   border-bottom-color: #BABABA;
   border-left-color: #D1D1D1;
   border-right-color: #D1D1D1;
+  background-color: #E0DBD9;
 }
 
 .button:active {
   border-color: #BABABA;
   border-bottom-color: #afafaf;
+}
+
+.buttonOperation {
+  composes: button;
+  background-color: #F48E3C;
 }

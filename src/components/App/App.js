@@ -16,17 +16,18 @@ class App extends Component {
     total:     null,
     next:      null,
     operation: null,
+    error:     null,
   }
 
   handleClick = buttonName => this.setState(prevState => calculate(prevState, buttonName));
 
   render() {
-    const {total, next} = this.state;
+    const {total, next, error} = this.state;
     const result = next || total || '0';
 
     return (
       <div className={ Styles.calculator }>
-        <Display result={ result } />
+        <Display result={ result } error={ error } />
         <ButtonPanel clickHandler={ this.handleClick } />
       </div>
     );

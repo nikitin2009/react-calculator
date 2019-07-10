@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 import Styles from './Display.module.css';
 
-const Display = ({result}) => {
+const Display = ({result, error}) => {
   return (
-    <div className={ Styles.display } >{result}</div>
+    <div className={ Styles.display } >
+      { error || result }
+    </div>
   );
 }
 

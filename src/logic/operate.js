@@ -1,11 +1,6 @@
 import Big from 'big.js';
 
 export default function operate(numberOne, numberTwo, operation) {
-
-  if (operation === '÷' && numberTwo === '0') {
-    alert('Can\'t divide by zero');
-    return '0';
-  }
   
   const x = numberOne ? new Big(numberOne) : 0;
   const y = numberTwo ? new Big(numberTwo) : 0;

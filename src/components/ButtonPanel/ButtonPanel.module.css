@@ -1,0 +1,13 @@
+.panelRow {
+  height: 100px;
+  display: flex;
+}
+
+.panelButton {
+  flex-basis: 25%;
+}
+
+.panelButton2x {
+  composes: panelButton;
+  flex-basis: 50%;
+}
